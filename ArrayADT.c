@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
+
 struct myArray
 {
     int totalSize;
