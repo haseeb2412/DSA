@@ -60,3 +60,11 @@ int main(){
     printf("the element %d was found at index %d",element,searchIndex);
     return 0;
 }
+
+
+// int arr[]={12,34,56,78,456,786,2456,9999,999999};
+//     int size =sizeof(arr)/sizeof(int);
+//     int element =2456;
+//     int searchIndex =linearSearch(arr,size,element);
+//     printf("the element %d was found at index %d",element,searchIndex);
+//     return 0;
