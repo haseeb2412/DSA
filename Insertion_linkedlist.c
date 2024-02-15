@@ -30,6 +30,38 @@ struct Node * insertAtFirst(struct Node *head,int data){
     return ptr;
 }
 
+
+// inserton  node at the end of the linked list 
+
+struct Node * insertAtEnd(struct Node *head,int data){
+    struct Node *ptr =(struct Node*)malloc(sizeof(struct Node));
+    ptr->data=data;
+    struct Node * p =head;
+    while (p->next!=NULL)
+    {
+        p = p->next;
+    }
+    p->next = ptr;
+    ptr->next = NULL;
+
+    
+    return head;
+}
+
+
+//insertion node after the node 
+struct Node * insertAfterNode(struct Node *head,struct Node *prevNode,int data){
+    struct Node *ptr =(struct Node*)malloc(sizeof(struct Node));     // new node
+    ptr->data=data;
+  
+    ptr->next = prevNode->next;
+    prevNode->next = ptr;
+   
+    return head;
+}
+
+
+
 // insertion of node at soecific index in the linked list 
 
 struct Node * specificNode(struct Node *head,int data,int index){
@@ -56,11 +88,13 @@ int main(){
     struct Node * head;
     struct Node * second;
     struct Node * third;
+    struct Node * fourth;
 
     // Allocate memory for nodes in the linked list un heap
     head =(struct Node *)malloc(sizeof(struct Node));
     second =(struct Node *)malloc(sizeof(struct Node));
     third =(struct Node *)malloc(sizeof(struct Node));
+    fourth =(struct Node *)malloc(sizeof(struct Node));
 
     // linked first node to second 
     head->data =7;
@@ -70,20 +104,48 @@ int main(){
     second->data =70;
     second->next=third;
 
-    // last node
+    // third node connected to the fourth node 
     third->data =723;
-    third->next=NULL;
+    third->next=fourth;
+
+    // last node
+    fourth->data =7230;
+    fourth->next=NULL;
+
+
+
+    // CASE 01
 
 // linkedlistTreaversal(head);
 
 // head=insertAtFirst(head,23);
 // linkedlistTreaversal(head); 
 
+// CASE 02
+
+// linkedlistTreaversal(head);
+
+// head=specificNode(head,23,1);
+// linkedlistTreaversal(head); 
 
 
+// CASE 03
+// printf("before\n");
+// linkedlistTreaversal(head);
+
+// printf("\n after \n");
+
+// head=insertAtEnd(head,50);
+// linkedlistTreaversal(head); 
+
+
+// CASE 04
+printf("before\n");
 linkedlistTreaversal(head);
 
-head=specificNode(head,23,1);
+printf("\n after \n");
+
+head=insertAfterNode(head,second,50);
 linkedlistTreaversal(head); 
     return 0;
 }
