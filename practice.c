@@ -8,7 +8,14 @@ struct Node
     struct Node * next;
 };
 
+// delete a first node in linked list 
 
+struct Node* deleteatFirst(struct Node * head){
+    struct Node * ptr = head;
+    head = head ->next;
+    free(ptr);
+    return head;
+}
 // traversal in linked list 
 
 void traversal(struct Node *ptr){
@@ -162,9 +169,19 @@ int main (){
 
     //case 04
 
+    // printf("before\n");
+    // traversal(head);
+    // head =AtSpecific(head,1234,3);
+
+    // printf("after\n");
+    // traversal(head);
+    // return 0;
+
+    //case 05
+
     printf("before\n");
     traversal(head);
-    head =AtSpecific(head,1234,3);
+    head =deleteatFirst(head);
 
     printf("after\n");
     traversal(head);
