@@ -16,6 +16,24 @@ struct Node* deleteatFirst(struct Node * head){
     free(ptr);
     return head;
 }
+
+
+// deleting a node through index in linked list
+
+struct Node * deleteAtIndex(struct Node * head,int index){
+    struct Node * p = head;
+    int i=0;
+    while (i != index-1)
+    {
+        p = p->next;
+        i++;
+    }
+    struct Node * q = p->next;
+    p->next = q->next;
+    free(q);
+    return head;
+    
+}
 // traversal in linked list 
 
 void traversal(struct Node *ptr){
@@ -179,13 +197,23 @@ int main (){
 
     //case 05
 
+    // printf("before\n");
+    // traversal(head);
+    // head =deleteatFirst(head);
+
+    // printf("after\n");
+    // traversal(head);
+    // return 0;
+
+    // case 06
     printf("before\n");
     traversal(head);
-    head =deleteatFirst(head);
+    head =deleteAtIndex(head,1);
 
     printf("after\n");
     traversal(head);
     return 0;
+
 
 }
 
