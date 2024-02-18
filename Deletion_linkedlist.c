@@ -23,6 +23,74 @@ void Traversal(struct Node *ptr){
     
 }
 
+// delet the first node of linked list in the heap
+
+struct Node * deleteAtEnd(struct Node * head){
+    struct Node * p = head;
+    struct Node * q = head->next;
+    while (q->next != NULL)
+    {
+        p=q;
+        q =q->next;
+    }
+    p->next = NULL;
+    free(q);
+    return head;
+    
+}
+
+
+//   delete the node at the specific index in the linked  list 
+
+struct Node * deleteAtIndex(struct Node * head,int index){
+    struct Node * p = head;
+    
+    int i =0;
+    while (i != index-1)
+    {
+        p=p->next;
+        i++;
+    }
+    struct Node * q = p->next;
+    p->next = q->next;
+    free(q);
+    return head;
+    
+   
+    
+    return head;
+    
+}
+
+// delete the element with a given value in the linked list 
+
+struct Node *deleteNode(struct Node *head, int value) {
+    struct Node *p = head;
+    struct Node *q = head->next;
+
+    // If the head node contains the value to be deleted
+    if (p->data == value) {
+        head = p->next;
+        free(p);
+        return head;
+    }
+
+    // Traverse the linked list to find the node to delete
+    while (q != NULL && q->data != value) {
+        p = p->next;
+        q = q->next;
+    }
+
+    // If the node with the given value is found
+    if (q != NULL) {
+        p->next = q->next;
+        free(q);
+    }
+
+    return head;
+}
+
+// delete the first node in the linked list 
 
 struct Node * deleteAtFirst(struct Node * head){
     struct Node * p = head;
@@ -30,7 +98,6 @@ struct Node * deleteAtFirst(struct Node * head){
     free(p);
     return head;
 }
-
 
 int main(){
 
@@ -66,14 +133,44 @@ int main(){
      fivth->data =50;
     fivth->next =NULL;
 
-    printf("before\n");
+
+    //case 01
+
+    // printf("before\n");
+    // Traversal(head);
+
+    // printf("After\n");
+    // head = deleteAtFirst(head);
+    // Traversal(head);
+
+
+    // case 02
+
+    // printf("before\n");
+    // Traversal(head);
+
+    // printf("After\n");
+    // head = deleteAtEnd(head);
+    // Traversal(head);
+
+
+    // case03
+
+    // printf("before\n");
+    // Traversal(head);
+
+    // printf("After\n");
+    // head = deleteAtIndex(head,2);
+    // Traversal(head);
+
+    // case 04
+
+      printf("before\n");
     Traversal(head);
 
     printf("After\n");
-    head = deleteAtFirst(head);
+    head = deleteNode(head,1);
     Traversal(head);
-
-
 
     return 0;
 
