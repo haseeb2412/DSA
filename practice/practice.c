@@ -308,6 +308,7 @@ struct Node
 
 
 int main(){
+
     struct Node * head= (struct Node *)malloc(sizeof(struct Node));
     struct Node * second= (struct Node *)malloc(sizeof(struct Node));
     struct Node * third= (struct Node *)malloc(sizeof(struct Node));
@@ -335,5 +336,7 @@ int main(){
     five->data=500;
     five->next=NULL;
 
+
+return 0;
     
 }
