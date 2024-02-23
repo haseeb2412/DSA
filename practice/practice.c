@@ -306,6 +306,18 @@ struct Node
 };
 
 
+// traversal doubly linked list 
+
+void traversal(struct Node * head){
+    struct Node * ptr = head;
+    while (ptr != NULL)
+    {
+        printf("Element is :%d\n",ptr->data);
+        ptr = ptr->next;
+    }
+    
+}
+
 
 int main(){
 
@@ -336,7 +348,10 @@ int main(){
     five->data=500;
     five->next=NULL;
 
+    traversal(head);
+
 
 return 0;
     
 }
+
