@@ -329,6 +329,16 @@ void traversal(struct Node * head){
     
 }
 
+void Doublytraversal(struct Node * head){
+    struct Node * ptr = head;
+    while (ptr != NULL)
+    {
+        printf("Element is :%d\n",ptr->data);
+        ptr = ptr->next;
+    }
+    
+}
+
 
 int main(){
 
