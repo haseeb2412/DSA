@@ -53,6 +53,21 @@ void push(struct stack * ptr,int val){
 
 //  pop the element in the stack
 
+// int pop(struct stack * ptr){
+//         if (isEmpty(ptr))
+//         {
+//             printf("under underflow");
+//             return -1;
+//         }else{
+//             int val = ptr->arr[ptr->top];
+//             ptr->top--;
+//             return val;
+//         }
+        
+// }
+
+
+
 int pop(struct stack * ptr){
         if (isEmpty(ptr))
         {
@@ -65,6 +80,7 @@ int pop(struct stack * ptr){
         }
         
 }
+
 
 
 
