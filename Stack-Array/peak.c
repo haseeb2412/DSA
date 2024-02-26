@@ -55,19 +55,6 @@ void push(struct stack * ptr,int val){
 
 //  pop the element in the stack
 
-// int pop(struct stack * ptr){
-//         if (isEmpty(ptr))
-//         {
-//             printf("under underflow");
-//             return -1;
-//         }else{
-//             int val = ptr->arr[ptr->top];
-//             ptr->top--;
-//             return val;
-//         }
-        
-// }
-
 
 
 int pop(struct stack * ptr){
@@ -84,6 +71,17 @@ int pop(struct stack * ptr){
 }
 
 
+int peak(struct stack * sp,int i){
+    int arrayInd = sp->top-i+1;
+    if(arrayInd < 0){
+        printf("not a valid positionfor the stack");
+        return -1;
+    }else{
+        return sp->arr[arrayInd]; 
+    }
+}
+
+
 
 
 
@@ -96,27 +94,36 @@ int main(){
 
     printf("stack has been created successfully\n ");
 
-printf(" before %d\n",isFull(sp));
-printf(" before %d\n",isEmpty(sp));
+// printf(" before %d\n",isFull(sp));
+// printf(" before %d\n",isEmpty(sp));
 
-push(sp,12);
-push(sp,12);
-push(sp,12);
-push(sp,12);
-push(sp,12);
-push(sp,12);
-push(sp,12);
-push(sp,12);
-push(sp,12);
-push(sp,3452);  // react the arrray limit 
-push(sp,45);  // stack overflow 
+push(sp,10);
+push(sp,20);
+push(sp,30);
+push(sp,40);
+push(sp,50);
+push(sp,60);
+push(sp,70);
+push(sp,80);
+push(sp,90);
+push(sp,1000);  // react the arrray limit 
+// push(sp,45);  // stack overflow 
 
-printf(" after %d\n",isFull(sp));
-printf(" after %d\n",isEmpty(sp));
-
-
-printf("pop the element fron the stack %d",pop(sp));
+// printf(" after %d\n",isFull(sp));
+// printf(" after %d\n",isEmpty(sp));
 
 
+// printf("pop the element fron the stack %d",pop(sp));
 
+
+// reading all element through the peak function
+
+for (int j = 0; j < sp->top; j++)
+{
+    printf("the value at position %d is %d\n",j,peak(sp,j));
 }
+
+
+
+
+} 
