@@ -60,6 +60,19 @@ int pop(struct Node** top){
     }
 }
  
+// int pop(struct Node** top){
+//     if(isEmpty(*top)){
+//         printf("Stack Underflow\n");
+//     }
+//     else{
+//         struct Node* n = *top;
+//         *top = (*top)->next;
+//         int x = n->data;
+//         free(n);
+//         return x; 
+//     }
+// }
+ 
 int main(){
     struct Node* top = NULL;
     return 0;
