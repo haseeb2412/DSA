@@ -6,6 +6,11 @@ struct Node{
     struct Node * next;
 };
  
+
+
+ struct Node* top = NULL;
+
+
 void linkedListTraversal(struct Node *ptr)
 {
     while (ptr != NULL)
@@ -47,13 +52,13 @@ struct Node* push(struct Node* top, int x){
     }
 }
  
-int pop(struct Node** top){
-    if(isEmpty(*top)){
+int pop(struct Node* tp){
+    if(isEmpty(tp)){
         printf("Stack Underflow\n");
     }
     else{
-        struct Node* n = *top;
-        *top = (*top)->next;
+        struct Node* n = tp;
+        top = (tp)->next;
         int x = n->data;
         free(n);
         return x; 
@@ -73,7 +78,34 @@ int pop(struct Node** top){
 //     }
 // }
  
+ int peek(int pos){
+    struct Node* ptr = top;
+    for (int i = 0; (i < pos-1 && ptr!=NULL); i++)
+    {
+        ptr = ptr->next;
+    }
+    if(ptr!=NULL){
+        return ptr->data;
+    }
+    else{
+        return -1;
+    }
+}
+
 int main(){
-    struct Node* top = NULL;
+    // struct Node* top = NULL;
+
+    top = push(top, 28);
+    top = push(top, 18);
+    top = push(top, 15);
+    top = push(top, 7);
+    
+    linkedListTraversal(top);
+    for (int i = 1; i <= 4; i++)
+    {
+        printf("Value at position %d is : %d\n", i, peek(i));
+    }
     return 0;
+
+
 }
