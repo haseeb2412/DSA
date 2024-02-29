@@ -38,6 +38,29 @@ int isFull(struct stack * ptr){
 }
 
 
+// push the elemtn in the array in stack 
+
+void push(struct stack * ptr,int val){
+    if(isFull(ptr)){
+        printf("stack is full\n");
+    }else{
+        ptr->top++;
+        ptr->arr[ptr->top] = val;
+    }
+}
+
+// pop the element inthe array in stack 
+
+void pop(struct stack * ptr){
+    if(isEmpty(ptr)){
+        printf("stack is empty in function\n");
+    }else{
+        int val = ptr->arr[ptr->top];
+        ptr->top--;
+    }
+}
+
+
 
 int main(){
 
@@ -46,8 +69,12 @@ int main(){
     s->size =10;
     s->arr = (int *)malloc(s->size*sizeof(int));
 
-    s->arr[0]=90;
-    s->top++;
+    // s->arr[0]=90;
+    // s->top++;
+
+    push(s,34);
+    // pop(s);
+    pop(s);
 
 
     // checking the stack is empty or full 
