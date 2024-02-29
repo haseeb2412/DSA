@@ -84,7 +84,7 @@ int parenthesisMatch(char * exp){
  
 int main()
 {
-    char * exp = "((8)(*--$$9)";
+    char * exp = "((8)(*--$$9))";
     // Check if stack is empty
     if(parenthesisMatch(exp)){
         printf("The parenthesis is matching\n");
@@ -94,3 +94,17 @@ int main()
     }
     return 0;
 }
+
+// int main()
+// {
+//     char * exp = "((8)(*--$$9))";
+//     // Check if stack is empty
+//     if(parenthesisMatch(exp)){
+//         printf("The parenthesis is matching\n");
+//     }
+//     else{
+//         printf("The parenthesis is not matching\n");
+//     }
+//     return 0;
+// }
+
