@@ -101,6 +101,20 @@ int parenthesisMatch(char * exp){
     return result;
 }
  
+// int main()
+// {
+//     char * exp = "[4-6]({(8){(9-8)})";
+    
+//     if(parenthesisMatch(exp)){
+//         printf("The parenthesis is balanced");
+//     }
+//     else{
+//         printf("The parenthesis is not balanced");
+//     }
+//     return 0;
+    
+// }
+
 int main()
 {
     char * exp = "[4-6]({(8){(9-8)})";
@@ -112,5 +126,5 @@ int main()
         printf("The parenthesis is not balanced");
     }
     return 0;
-    return 0;
+    
 }
