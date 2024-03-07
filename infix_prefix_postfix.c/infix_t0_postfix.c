@@ -130,28 +130,7 @@ char * infixToPostfix(char *infix){
 }
  
 
-// int main()
-// {
-//     char * infix = "x-y/z-k*d";
-//     printf("postfix is %s\n", infixToPostfix(infix));
-//     return 0;
-// }
 
-// int main()
-// {
-//     char * infix = "x-y/z-k*d";
-//     printf("postfix is %s\n", infixToPostfix(infix));
-//     return 0;
-// }
-
-
-
-// int main()
-// {
-//     char * infix = "x-y/z-k*d";
-//     printf("postfix is %s\n", infixToPostfix(infix));
-//     return 0;
-// }
 
 int main()
 {
