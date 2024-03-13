@@ -116,14 +116,7 @@ int main(){
 
     //------------------- CASE 03 --------------
 
-    //   printf("-------- before  ---------\n");
-    // linkedListtraversal(head);
    
-
-    // head = deleteAtIndex(head,2);
-    // printf("------ after -----------\n");
-
-    // linkedListtraversal(head);
 
           printf("-------- before  ---------\n");
     linkedListtraversal(head);
