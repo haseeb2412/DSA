@@ -7,136 +7,136 @@ struct Node
     struct Node * next;
 };
 
-// here i write the code of traversal of linked list 
+// linked list traversal function
 
-void linkedListtraversal(struct Node * ptr){
-    while (ptr !=NULL)
+void linkedListTraversal(struct Node * ptr){
+    while (ptr != NULL)
     {
-        printf("element is : %d\n",ptr->data);
-        ptr = ptr->next;
+        printf("Element is :%d\n",ptr->data);
+        ptr =ptr->next;
     }
-    
     
 }
 
-
-// delete the first Node in the linked list 
- struct Node * deleteFirst(struct Node * head){
+// delte the first node in the linked list 
+ 
+struct Node * deleteFirst(struct Node * head){
     struct Node * ptr =head;
     head = head->next;
     free(ptr);
     return head;
-
- }
+}
 
 // delete the last Node in the linked list 
 
-struct Node * deleteEnd(struct Node * head){
-  struct Node * p = head;
-    struct Node * q = head->next;
+struct Node * deleteAtEnd(struct Node * head){
+    struct Node * p =head;
+    struct Node * q =head->next;
+
     while (q->next != NULL)
     {
-        p=q;
-        q =q->next;
+         p =q;
+         q = q->next;
     }
     p->next = NULL;
     free(q);
     return head;
-   
+    
 }
 
-// delete at specifice index 
+//delete the node at specific index in the linked list 
 
-struct Node * deleteAtIndex(struct Node * head,int index){
-    struct Node * p = head;
+struct Node * deleteAtNode(struct Node * head,int value){
+    struct Node * p =head;
+    struct Node * q =head->next;
     
-    int i =0;
-    while (i != index-1)
-    {
-        p=p->next;
-        i++;
+    if(head == value){
+        head=p->next;
+        free(p);
+        return head;
     }
-    struct Node * q = p->next;
-    p->next = q->next;
-    free(q);
-    return head;
     
-   
-    
+     while (q != NULL && q->data != value) {
+        p = p->next;
+        q = q->next;
+    }
+
+    // If the node with the given value is found
+    if (q != NULL) {
+        p->next = q->next;
+        free(q);
+    }
     return head;
     
 }
-
 int main(){
 
-    struct Node * head = (struct Node *)malloc(sizeof(struct Node));
-    struct Node * second = (struct Node *)malloc(sizeof(struct Node));
-    struct Node * third = (struct Node *)malloc(sizeof(struct Node));
-    struct Node * four = (struct Node *)malloc(sizeof(struct Node));
+    // initilize node  in heap
+
+    struct Node * head=(struct Node *)malloc(sizeof(struct Node));
+    struct Node * second=(struct Node *)malloc(sizeof(struct Node));
+    struct Node * third=(struct Node *)malloc(sizeof(struct Node));
+    struct Node * four=(struct Node *)malloc(sizeof(struct Node));
+    struct Node * five=(struct Node *)malloc(sizeof(struct Node));
+
+    // connect one Node to another 
+    head->data=10;
+    head->next=second;
+
+    second->data=20;
+    second->next=third;
+
+    third->data=30;
+    third->next=four;
+
+    four->data=40;
+    four->next=five;
+
+    five->data=50;
+    five->next=NULL;
 
 
-    head->data = 10;
-    head->next = second;
+    // -----------------CASE 01 -------------------
 
-    second->data = 120;
-    second->next = third;
+    // printf("-----Before-----\n");
+    // linkedListTraversal(head);
 
-    third->data = 130;
-    third->next = four;
+    // printf("-----After-----\n");
+    // head=deleteFirst(head);
 
-    four->data = 140;
-    four->next = NULL;
+    // linkedListTraversal(head);
 
 
-    // ---------------  CASE 01 -----------------
+    // -----------------CASE 02 -------------------
 
-    //  printf("-------- before  ---------\n");
-    // linkedListtraversal(head);
-   
+    //  printf("-----Before-----\n");
+    // linkedListTraversal(head);
 
-    // head = deleteFirst(head);
-    // printf("------ after -----------\n");
+    // printf("-----After-----\n");
+    // head=deleteAtEnd(head);
 
-    // linkedListtraversal(head);
+    // linkedListTraversal(head);
 
-
-
-    //----------------------- CASE 02 --------------
+    // -----------------CASE 03 -------------------
 
 
-    //  printf("-------- before  ---------\n");
-    // linkedListtraversal(head);
-   
+    //    printf("-----Before-----\n");
+    // linkedListTraversal(head);
 
-    // head = deleteEnd(head);
-    // printf("------ after -----------\n");
+    // printf("-----After-----\n");
+    // head=deleteAtSpecific(head,2);
 
-    // linkedListtraversal(head);
+    // linkedListTraversal(head);
 
+    // -----------------CASE 04 -------------------
+    
+    printf("-----Before-----\n");
+    linkedListTraversal(head);
 
-    //------------------- CASE 03 --------------
+    printf("-----After-----\n");
+    head=deleteAtNode(head,2);
 
-   
-
-    //       printf("-------- before  ---------\n");
-    // linkedListtraversal(head);
-   
-
-    // head = deleteAtIndex(head,2);
-    // printf("------ after -----------\n");
-
-    // linkedListtraversal(head);
-
-    printf("-------- before  ---------\n");
-    linkedListtraversal(head);
-   
-
-    head = deleteAtIndex(head,2);
-    printf("------ after -----------\n");
-
-    linkedListtraversal(head);
-
-
+    linkedListTraversal(head);
 
     return 0;
 }
