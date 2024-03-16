@@ -181,6 +181,24 @@ struct Node * insertAtFirst(struct Node * head,int data){
 
 }
 
+// insert at the end of the linked list 
+
+struct Node * insertAtEnd(struct Node * head,int data){
+    struct Node * ptr =(struct Node *)malloc(sizeof(struct Node));
+    struct Node * p = head;
+     ptr->data =data;
+    while (p->next != NULL)
+    {
+        p= p->next;
+
+    }
+    p->next = ptr;
+    ptr->next =NULL;
+   
+    return head;
+    
+}
+
 int main(){
     struct Node * head = (struct Node *)malloc(sizeof(struct Node));
     struct Node * second = (struct Node *)malloc(sizeof(struct Node));
@@ -210,11 +228,23 @@ int main(){
     sixth->data = 60;
     sixth->next =NULL;
 
-    printf("Before\n");
+    //-------------------CASE 01 ----------------------------
+
+    // printf("Before\n");
+    // linkedListTraversal(head);
+
+    //  printf("After\n");
+    // head=insertAtFirst(head,203);
+    // linkedListTraversal(head);
+
+
+    //-------------------- CASE 02 --------------------------
+
+       printf("Before\n");
     linkedListTraversal(head);
 
      printf("After\n");
-    head=insertAtFirst(head,203);
+    head=insertAtEnd(head,203);
     linkedListTraversal(head);
 
     return 0;
