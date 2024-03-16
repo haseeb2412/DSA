@@ -171,6 +171,16 @@ void linkedListTraversal(struct Node * ptr){
     
 }
 
+// insert at first in the linked list 
+
+struct Node * insertAtFirst(struct Node * head,int data){
+    struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+    ptr->next = head;
+    ptr->data = data;
+    return ptr;
+
+}
+
 int main(){
     struct Node * head = (struct Node *)malloc(sizeof(struct Node));
     struct Node * second = (struct Node *)malloc(sizeof(struct Node));
@@ -201,6 +211,10 @@ int main(){
     sixth->next =NULL;
 
     printf("Before\n");
+    linkedListTraversal(head);
+
+     printf("After\n");
+    head=insertAtFirst(head,203);
     linkedListTraversal(head);
 
     return 0;
