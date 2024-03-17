@@ -11,7 +11,7 @@ struct Node
 
 // linked list traversal code 
 
-void linkedlistTreaversal(struct Node *ptr){
+void linkedlistTreaversal(struct Node *ptr){ 
     while (ptr != NULL)
     {
         printf("Element is %d:\n",ptr->data);

@@ -199,6 +199,23 @@ struct Node * insertAtEnd(struct Node * head,int data){
     
 }
 
+//insert at specific index in the linked list 
+
+struct Node * specificNode(struct Node * head,int data,int index){
+    struct Node * p =head;
+    struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+    int i =0;
+    while (i != index-1)
+    {
+        p = p->next;
+        i++;
+    }
+    ptr->data =data;
+    ptr->next =p->next;
+    p->next = ptr;
+    return head;
+    
+}
 int main(){
     struct Node * head = (struct Node *)malloc(sizeof(struct Node));
     struct Node * second = (struct Node *)malloc(sizeof(struct Node));
@@ -240,12 +257,28 @@ int main(){
 
     //-------------------- CASE 02 --------------------------
 
-       printf("Before\n");
+    //    printf("Before\n");
+    // linkedListTraversal(head);
+
+    //  printf("After\n");
+    // head=insertAtEnd(head,203);
+    // linkedListTraversal(head);
+
+
+    //-------------------CASE 03 ----------------------------
+
+      printf("Before\n");
     linkedListTraversal(head);
 
      printf("After\n");
-    head=insertAtEnd(head,203);
+    head=specificNode(head,20003,3);
     linkedListTraversal(head);
 
     return 0;
 }
+
+
+// Input: head = [1,2,3,4,5]
+// Output: [3,4,5]
+// Explanation: The middle node of the list is node 3.
+
