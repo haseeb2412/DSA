@@ -114,6 +114,14 @@ int main(){
     //  six->data =60;
     // six->next=NULL;
 
+// printf("Before\n");
+// linkedlistTreaversal(head);
+// printf("after\n");
+
+// head = middleNode(head);
+
+// linkedlistTreaversal(head);
+
 printf("Before\n");
 linkedlistTreaversal(head);
 printf("after\n");
