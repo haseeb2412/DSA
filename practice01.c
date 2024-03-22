@@ -289,6 +289,13 @@ int main(){
     //--------------CASE 04 ---------------------------------
 
     
+    // printf("Before\n");
+    // linkedListTraversal(head);
+
+    //  printf("After\n");
+    // head=afterNode(head,third,300);
+    // linkedListTraversal(head);
+
     printf("Before\n");
     linkedListTraversal(head);
 
